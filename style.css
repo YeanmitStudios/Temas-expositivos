@@ -1,22 +1,21 @@
 /* ==========================================================================
-   Variables de Paleta de Colores (Inspirada en Entornos UI Profesionales)
+   Variables de Paleta de Colores (Estilo UI Dark Moderno)
    ========================================================================== */
 :root {
-    --bg-color: #1a1a1e;       /* Fondo oscuro profundo */
-    --card-bg: #24242b;        /* Fondo de tarjetas para contraste */
+    --bg-color: #0f0f13;       /* Fondo más oscuro y profundo */
+    --card-bg: #17171c;        /* Tarjetas con mejor contraste */
     --accent-color: #3b82f6;   /* Azul tecnológico brillante */
     --text-main: #f3f4f6;      /* Texto principal */
     --text-muted: #9ca3af;     /* Texto secundario de soporte */
-    --border-color: #3f3f46;   /* Líneas divisorias sutiles */
+    --border-color: #27272a;   /* Bordes más sutiles estilo Tailwind */
     
     /* Variables de Estado */
-    --status-done: #10b981;    /* Verde */
-    --status-progress: #f59e0b;/* Ámbar */
-    --status-review: #8b5cf6;  /* Púrpura */
-    --status-todo: #6b7280;    /* Gris */
+    --status-done: #10b981;    
+    --status-progress: #f59e0b;
+    --status-todo: #6b7280;    
 }
 
-/* Reseteo estándar de márgenes y box-sizing */
+/* Reseteo estándar */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -28,11 +27,11 @@ body {
     background-color: var(--bg-color);
     color: var(--text-main);
     line-height: 1.6;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -41,9 +40,9 @@ body {
    Encabezado / Hero Banner
    ========================================================================== */
 .hero {
-    background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent), var(--bg-color);
+    background: radial-gradient(circle at top, rgba(59, 130, 246, 0.08), transparent 60%), var(--bg-color);
     border-bottom: 1px solid var(--border-color);
-    padding: 50px 0;
+    padding: 60px 0;
     text-align: center;
     margin-bottom: 40px;
 }
@@ -54,27 +53,19 @@ body {
     color: var(--accent-color);
     padding: 6px 14px;
     border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.75rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 14px;
-    border: 1px solid rgba(59, 130, 246, 0.25);
+    margin-bottom: 16px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 .hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 10px;
     letter-spacing: -0.02em;
-}
-
-.hero p {
-    font-size: 1rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
 }
 
 /* ==========================================================================
@@ -82,47 +73,51 @@ body {
    ========================================================================== */
 .grid-temas {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
     margin-bottom: 45px;
 }
 
+/* Estructura Flexbox interna para alinear el botón siempre abajo */
 .card-tema {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 14px;
+    border-radius: 16px;
     padding: 24px;
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-tema:hover {
     transform: translateY(-4px);
-    border-color: var(--accent-color);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.5);
 }
 
-/* Encabezado interno de tarjeta */
+/* Encabezado interno de tarjeta usando Flexbox en vez de Table */
 .card-header {
-    display: table;
-    width: 100%;
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .user-icon {
-    display: table-cell;
-    vertical-align: middle;
-    width: 42px;
-    height: 42px;
-    background-color: rgba(255, 255, 255, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
     border-radius: 50%;
-    text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .student-info {
-    display: table-cell;
-    vertical-align: middle;
     padding-left: 14px;
 }
 
@@ -138,79 +133,56 @@ body {
 }
 
 /* Cuerpo interno de tarjeta */
+.card-body {
+    flex-grow: 1; /* Hace que el cuerpo ocupe el espacio disponible */
+    display: flex;
+    flex-direction: column;
+}
+
 .card-body h4 {
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 0.85rem;
+    font-weight: 700;
     color: var(--accent-color);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
 }
 
 .card-body p {
     font-size: 0.9rem;
     color: var(--text-muted);
-    margin-bottom: 20px;
-    min-height: 66px; /* Mantiene balance visual uniforme */
+    margin-bottom: 24px;
+    line-height: 1.6;
 }
 
-/* Etiquetas de Estado del entregable */
-.status-badge {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+/* Contenedor especial para centrar la imagen "sin definir" de forma estética */
+.card-body img {
+    margin: auto;
+    display: block;
+    max-height: 150px; /* Reducido para que no empuje el diseño */
+    padding: 10px 0;
 }
-
-.status-done { background-color: rgba(16, 185, 129, 0.12); color: var(--status-done); }
-.status-progress { background-color: rgba(245, 158, 11, 0.12); color: var(--status-progress); }
-.status-review { background-color: rgba(139, 92, 246, 0.12); color: var(--status-review); }
-.status-todo { background-color: rgba(107, 114, 128, 0.12); color: var(--status-todo); }
 
 /* ==========================================================================
-   Sección de Recursos Adicionales e Interactividad
+   Botón de Recursos Estilizado
    ========================================================================== */
-.resources-section {
-    background-color: rgba(255, 255, 255, 0.01);
-    border: 1px dashed var(--border-color);
-    border-radius: 14px;
-    padding: 28px;
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.resources-section h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-
 .btn-resource {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: #ffffff;
+    display: block;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
     text-decoration: none;
-    padding: 10px 22px;
-    border-radius: 8px;
-    font-size: 0.9rem;
+    padding: 11px 16px;
+    border-radius: 10px;
+    font-size: 0.85rem;
     font-weight: 600;
-    margin: 6px 8px;
-    transition: background-color 0.15s ease;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .btn-resource:hover {
-    background-color: #2563eb;
-}
-
-.btn-resource.btn-secondary {
-    background-color: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-main);
-}
-
-.btn-resource.btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.04);
+    background-color: rgba(59, 130, 246, 0.08);
+    border-color: var(--accent-color);
+    color: #ffffff;
 }
 
 /* ==========================================================================
@@ -218,7 +190,8 @@ body {
    ========================================================================== */
 footer {
     text-align: center;
-    padding-top: 24px;
+    padding-top: 30px;
+    margin-top: 60px;
     border-top: 1px solid var(--border-color);
     color: var(--text-muted);
     font-size: 0.8rem;

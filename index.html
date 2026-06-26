@@ -32,9 +32,9 @@
                 </div>
                 <div class="card-body">
                     <h4>ORIGEN DEL CEVICHE</h4>
-                    <p>Modelado geométrico de la estructura de madera, cálculo de dimensiones de la base y optimización del chasis mecánico.</p>
-                    <div class="status-badge status-progress">En Progreso</div>
+                    <p id="texto-ivann">La comida de la costa peruana nace del mestizaje cultural. Combina la base prehispánica de pescado fresco y ajíes con los ingredientes traídos por los españoles, como el limón y la cebolla. Sumando la creatividad de los afroperuanos y las técnicas de los inmigrantes asiáticos, se creó nuestra gastronomía única actual.</p>
                 </div>
+                <a href="#" class="btn-resource" onclick="descargarTexto('Origen del Cevicvhe - Ivann', 'texto-ivann'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
             </article>
 
             <article class="card-tema">
@@ -47,9 +47,9 @@
                 </div>
                 <div class="card-body">
                     <h4>VALOR NUTRICIONAL DEL CEVICHE Y CHICHA MORADA</h4>
-                    <p>Cálculo de revoluciones por minuto (RPM), relación de transmisión, acoplamiento del eje y fijación del motor eléctrico.</p>
-                    <div class="status-badge status-review">Por Revisar</div>
+                    <p id="texto-rafael">Estos platos destacan por sus insumos peruanos altamente nutritivos. El pescado del mar de Grau aporta proteínas magras y Omega-3, vitales para el cerebro y el corazón. Además, el limón piurano otorga vitamina C para las defensas, mientras que el camote y la papa brindan energía sana y natural.</p>
                 </div>
+                <a href="#" class="btn-resource" onclick="descargarTexto('Valor Nutricional - Rafael', 'texto-rafael'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
             </article>
 
             <article class="card-tema">
@@ -62,9 +62,9 @@
                 </div>
                 <div class="card-body">
                     <h4>SIN DEFINIR</h4>
-                    <p>Redacción de la fundamentación científica: fuerza centrípeta, aceleración angular y la justificación metodológica del proyecto.</p>
-                    <div class="status-badge status-done">Completado</div>
+                    <img src="Sin_definir_icon.svg" style="width: 200px;">
                 </div>
+                <button class="btn-resource" disabled style="opacity: 0.3; cursor: not-allowed; width: 100%;">📁 Archivo no disponible</button>
             </article>
 
             <article class="card-tema">
@@ -76,42 +76,54 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h4>Tema: Resistencia de Materiales y Ensamblaje</h4>
-                    <p>Evaluación de los tipos de madera para absorber vibraciones mecánicas y selección de herrajes de unión o adhesivos estructurales.</p>
-                    <div class="status-badge status-progress">En Progreso</div>
+                    <h4>SIN DEFINIR</h4>
+                    <img src="Sin_definir_icon.svg" style="width: 200px;">
                 </div>
+                <button class="btn-resource" disabled style="opacity: 0.3; cursor: not-allowed; width: 100%;">📁 Archivo no disponible</button>
             </article>
 
             <article class="card-tema">
                 <div class="card-header">
                     <div class="user-icon">👤</div>
                     <div class="student-info">
-                        <h3>Alumno 5</h3>
-                        <span class="role">Seguridad y Campo</span>
+                        <h3>Juan (Turno sin definir)</h3>
+                        <span class="role">(Tema sin definir)</span>
                     </div>
                 </div>
                 <div class="card-body">
-                    <h4>Tema: Protocolos de Seguridad y Cuaderno de Campo</h4>
-                    <p>Diseño del escudo de contención perimetral (tapa protectora) y control cronológico de bitácoras del prototipo.</p>
-                    <div class="status-badge status-todo">Pendiente</div>
+                    <h4>SIN DEFINIR</h4>
+                    <img src="Sin_definir_icon.svg" style="width: 200px;">
                 </div>
+                <button class="btn-resource" disabled style="opacity: 0.3; cursor: not-allowed; width: 100%;">📁 Archivo no disponible</button>
             </article>
 
-        </section>
-
-        <section class="resources-section">
-            <h2>Recursos Compartidos</h2>
-            <div class="resources-links">
-                <a href="#" class="btn-resource">📁 Descargar Resumen PDF</a>
-                <a href="#" class="btn-resource btn-secondary">💬 Canal de Coordinación</a>
-            </div>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 YeanmitStudios. Panel de organización interna para proyectos tecnológicos.</p>
+        <p>Temas expositivos</p>
     </footer>
+
+    <script>
+        function descargarTexto(nombreArchivo, idElementoTexto) {
+            // 1. Obtenemos el texto del párrafo correspondiente usando su ID
+            const textoDescarga = document.getElementById(idElementoTexto).innerText;
+            
+            // 2. Creamos un "Blob" que contiene el texto en formato puro (plain text)
+            const blob = new Blob([textoDescarga], { type: 'text/plain;charset=utf-8' });
+            
+            // 3. Creamos un enlace temporal invisible en memoria
+            const enlaceTemporal = document.createElement('a');
+            enlaceTemporal.href = URL.createObjectURL(blob);
+            enlaceTemporal.download = nombreArchivo + '.txt'; // Nombre del archivo descargado
+            
+            // 4. Simulamos el clic para iniciar la descarga y lo removemos
+            document.body.appendChild(enlaceTemporal);
+            enlaceTemporal.click();
+            document.body.removeChild(enlaceTemporal);
+        }
+    </script>
 
 </body>
 </html>
