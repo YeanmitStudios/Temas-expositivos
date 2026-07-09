@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignación de Temas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <span class="badge">EXPOSICIÓN MATEMÁTICA</span>
+            <h1>Temas de exposición del día del logro</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="grid-temas">
+            
+            <article class="card-tema">
+                <div class="card-header">
+                    <div class="user-icon">👤</div>
+                    <div class="student-info">
+                        <h3>Estefano</h3>
+                        <span class="role">¿Porque existe el factorial? (Turno 1)</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h4>¿PORQUE EXISTE EL FACTORIAL?</h4>
+                    <img src="Sin_definir_icon.svg">
+                </div>
+                <a href="#" class="btn-resource" onclick="descargarTexto('Origen de la causa limeña - Ivann', 'texto-ivann'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
+            </article>
+
+            <article class="card-tema">
+                <div class="card-header">
+                    <div class="user-icon">👤</div>
+                    <div class="student-info">
+                        <h3>Leonel</h3>
+                        <span class="role">Teoría del factorial (Turno 2)</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h4>TEORIA DEL FACTORIAL</h4>
+                    <img src="Sin_definir_icon.svg">
+                </div>
+                <a href="#" class="btn-resource" onclick="descargarTexto('Valor Nutricional - Rafael', 'texto-rafael'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
+            </article>
+
+            <article class="card-tema">
+                <div class="card-header">
+                    <div class="user-icon">👤</div>
+                    <div class="student-info">
+                        <h3>Rafael</h3>
+                        <span class="role">Ejemplos de factoriales (Turno 3)</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h4>EJEMPLOS DE FACTORIALES</h4>
+                    <img src="Sin_definir_icon.svg">
+                </div>
+                <a href="#" class="btn-resource" onclick="descargarTexto('Ingredientes de la causa limeña - Juan', 'texto-juan'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
+            </article>
+
+            <article class="card-tema">
+                <div class="card-header">
+                    <div class="user-icon">👤</div>
+                    <div class="student-info">
+                        <h3>Jaicob</h3>
+                        <span class="role">¿Porque existe la tetración? (Turno 4)</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h4>¿PORQUE EXISTE LA TETRACIÓN?</h4>
+                    <img src="Sin_definir_icon.svg">
+                </div>
+                <a href="#" class="btn-resource" onclick="descargarTexto('Preparación de la causa limeña - Fernando', 'texto-fernando'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
+            </article>
+
+            <article class="card-tema">
+                <div class="card-header">
+                    <div class="user-icon">👤</div>
+                    <div class="student-info">
+                        <h3>Juan</h3>
+                        <span class="role">Teoría de la tetración (Turno 5)</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h4>TEORIA DE LA TETRACIÓN</h4>
+                    <img src="Sin_definir_icon.svg">
+                </div>
+                <a href="#" class="btn-resource" onclick="descargarTexto('Preparación de la chicha morada - Leonel', 'texto-leonel'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
+            </article>
+
+            <article class="card-tema">
+                <div class="card-header">
+                    <div class="user-icon">👤</div>
+                    <div class="student-info">
+                        <h3>Franchesco</h3>
+                        <span class="role">Ejemplos de tetraciones (Turno 6)</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h4>EJEMPLOS DE TETRACIONES</h4>
+                    <img src="Sin_definir_icon.svg">
+                </div>
+                <a href="#" class="btn-resource" onclick="descargarTexto('Preparación de la chicha morada - Leonel', 'texto-leonel'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Temas expositivos</p>
+    </footer>
+
+    <script>
+        function descargarTexto(nombreArchivo, idElementoTexto) {
+            // 1. Obtenemos el texto del párrafo correspondiente usando su ID
+            const textoDescarga = document.getElementById(idElementoTexto).innerText;
+            
+            // 2. Creamos un "Blob" que contiene el texto en formato puro (plain text)
+            const blob = new Blob([textoDescarga], { type: 'text/plain;charset=utf-8' });
+            
+            // 3. Creamos un enlace temporal invisible en memoria
+            const enlaceTemporal = document.createElement('a');
+            enlaceTemporal.href = URL.createObjectURL(blob);
+            enlaceTemporal.download = nombreArchivo + '.txt'; // Nombre del archivo descargado
+            
+            // 4. Simulamos el clic para iniciar la descarga y lo removemos
+            document.body.appendChild(enlaceTemporal);
+            enlaceTemporal.click();
+            document.body.removeChild(enlaceTemporal);
+        }
+    </script>
+
+</body>
+</html>
