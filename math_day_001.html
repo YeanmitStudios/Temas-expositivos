@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignación de Temas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" 
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,15 +37,15 @@
                 <div class="card-header">
                     <div class="user-icon">👤</div>
                     <div class="student-info">
-                        <h3>Estefano</h3>
+                        <h3>Chino</h3>
                         <span class="role">¿Porque existe el factorial? (Turno 1)</span>
                     </div>
                 </div>
                 <div class="card-body">
                     <h4>¿PORQUE EXISTE EL FACTORIAL?</h4>
-                    <img src="Sin_definir_icon.svg">
+                    <p id="texto-estefano">El factorial existe como una herramienta matematica diseñada para resolver problemas como el conteo de posibilidades y ordenamientos. Su proposito principal es la combinatoria. Si tenemos $N$ objetos, usando el factorial obtenemos la cantidad de formas posibles de organizarlas. Por ejemplo, Si tenemos 4 objetos, y queremos ordenarlos en una mesa, usamos $4!$, que seria $ 4 \times 3 \times 2 \times 1 = 24$, o sea, 24 formas de organizar los objetos.</p>
                 </div>
-                <a href="#" class="btn-resource" onclick="descargarTexto('Origen de la causa limeña - Ivann', 'texto-ivann'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
+                <a href="#" class="btn-resource" onclick="descargarTexto('Por que existe el factorial? - Estefano', 'texto-estefano'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
             </article>
 
             <article class="card-tema">
@@ -47,9 +58,9 @@
                 </div>
                 <div class="card-body">
                     <h4>TEORIA DEL FACTORIAL</h4>
-                    <img src="Sin_definir_icon.svg">
+                    <p id="texto-leonel">Es una expresión matemática que te ayuda a calcular las posibles formas de organizar una lista de objetos. En la matemática, se usa el signo de exclamación para el factorial. Pongamos el siguiente ejemplo, $3!$(Tres factorial). Para calcularlo se toma él número y se multiplica por todos los números menores a el hasta llegar a 1. Y quedamos con $3 \times 2 \times 1 = 6$. Y asi obtenemos 6 formas de organizar nuestros objetos. Un dato curioso es que $0!$(Cero factorial) es igual a 1.</p>
                 </div>
-                <a href="#" class="btn-resource" onclick="descargarTexto('Valor Nutricional - Rafael', 'texto-rafael'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
+                <a href="#" class="btn-resource" onclick="descargarTexto('Teoria - Leonel', 'texto-leonel'); return false;">📁 Descargar Resumen en Archivo de Texto</a>
             </article>
 
             <article class="card-tema">
